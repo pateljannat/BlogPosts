@@ -14,7 +14,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      isLoggedIn: localStorage.getItem('isLoggedIn')
+      isLoggedIn: sessionStorage.getItem('isLoggedIn')
     }
     this.stateChange = this.stateChange.bind(this);
   }
@@ -41,9 +41,8 @@ class App extends Component {
         <div className="container">
           <NavBar></NavBar>
         </div>
-
-        <Route path="/" exact component={ListPosts} />
-        <Route path="/edit/:id" component={EditPosts} />
+        <Route className="container" path="/" exact component={ListPosts} />
+        <Route path="/edit/:id" compo nent={EditPosts} />
         <Route path="/create" component={CreatePosts} />
       </Router>
 

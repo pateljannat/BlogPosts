@@ -9,7 +9,7 @@ class Login extends Component {
         this.state = {
             'email': '',
             'password': '',
-            'isLoggedIn': localStorage.getItem('isLoggedIn')
+            'isLoggedIn': sessionStorage.getItem('isLoggedIn')
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,8 +34,8 @@ class Login extends Component {
                     'token': data.data.token,
                     'email': data.data.email
                 }
-                localStorage.setItem('key', JSON.stringify(token) );
-                localStorage.setItem('isLoggedIn', true);
+                sessionStorage.setItem('key', JSON.stringify(token) );
+                sessionStorage.setItem('isLoggedIn', true);
                 this.setState({
                     isLoggedIn: true
                 });

@@ -11,7 +11,7 @@ class SignUp extends Component {
             email: '',
             password: '',
             password1: '',
-            isLoggedIn: localStorage.getItem('isLoggedIn')
+            isLoggedIn: sessionStorage.getItem('isLoggedIn')
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,8 +38,8 @@ class SignUp extends Component {
                     'token': data.data.token,
                     'email': data.data.email
                 }
-                localStorage.setItem('key', JSON.stringify(token));
-                localStorage.setItem('isLoggedIn', true);
+                sessionStorage.setItem('key', JSON.stringify(token));
+                sessionStorage.setItem('isLoggedIn', true);
                 this.setState({
                     isLoggedIn: true
                 });

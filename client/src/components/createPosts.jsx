@@ -25,10 +25,10 @@ class CreatePosts extends Component {
         const payload = {
             'title': this.state.title,
             'post': this.state.post,
-            'user': JSON.parse(localStorage.getItem('key')).email
+            'user': JSON.parse(sessionStorage.getItem('key')).email
         }
         axios.post('http://localhost:4000/api/add', payload).then(data => {
-            console.log(data)
+            this.props.history.push('/');
         })
         this.setState({
             title: '',

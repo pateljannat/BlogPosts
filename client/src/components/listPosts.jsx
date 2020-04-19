@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import axios from "axios";
+import moment from "moment";
 
 class ListPosts extends Component {
 
@@ -14,12 +15,13 @@ class ListPosts extends Component {
     componentDidMount() {
         axios.get('http://localhost:4000/api', {
             params: {
-                email: JSON.parse(localStorage.getItem('key')).email
-            }
+                email: JSON.parse(sessionStorage.getItem('key')).email
+            },
+            headers: { 'Content-Type': 'application/json' }
         }).then(posts => {
-            console.log(posts);
+            var data = posts.data.sort((data1, data2) => new Date(data2.date) - new Date(data1.date));
             this.setState({
-                'posts': posts.data
+                'posts': data
             })
         }).catch(error => {
             console.log(error);
@@ -29,7 +31,7 @@ class ListPosts extends Component {
     render() {
         return (
             <div>
-                <p>Welcome to My Blogs!!</p>
+                <h1>Welcome to My Blogs!!</h1>
                 <div>
                     {this.displayPosts()}
                 </div>
@@ -42,13 +44,20 @@ class ListPosts extends Component {
         if (!posts.length) return null;
         return posts.map((post, index) => {
             return (
-                <div key={index}>
-                    <h3>{post.title}</h3>
-                    <p>{post.post}</p>
-                    <Link to={"/edit/" + post._id}>Edit</Link>
+                <div key={index} className="list-group-item">
+                    <div className="d-flex w-100 justify-content-between">
+                    <h3 className="mb-1">{post.title}</h3>
+                    <small className="text-muted">{this.displayDate(post.date)}</small>
+                    </div>
+                    <p className="mb-1">{post.post}</p>
+                    <Link className="list-group-item-action" to={"/edit/" + post._id}>Edit</Link>
                 </div>
             )
         })
+    }
+
+    displayDate(date) {
+        return moment(date).format('Do MMMM YYYY');
     }
 }
 

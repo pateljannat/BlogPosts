@@ -35,7 +35,6 @@ router.post('/api/accounts/register', (req, res) => {
             return res.status(200).json('Account already exists');
         }
     })
-    console.log("all clear")
     const newUser = new SignUp();
     newUser.email = email;
     newUser.password = newUser.generateHash(password);
@@ -208,8 +207,9 @@ router.get('/api/account/verify', (req, res, next) => {
 });
 
 router.get('/api', (req, res) => {
+    console.log('params',req.query.email)
     BlogPost.find({
-        'email': req.body.email
+        'user': req.query.email
     }).then((data) => {
         console.log(data)
         res.json(data);
