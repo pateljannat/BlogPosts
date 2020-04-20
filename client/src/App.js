@@ -7,6 +7,7 @@ import ListPosts from "./components/listPosts";
 import EditPosts from "./components/editPosts";
 import Login from "./components/login";
 import Registration from "./components/register";
+import "./App.css";
 
 
 class App extends Component {
@@ -26,13 +27,21 @@ class App extends Component {
     if (!this.state.isLoggedIn) {
       return (
         <Router>
-          <Route exact path="/register" component={() =>
-            <Registration stateChange={this.stateChange} ></Registration>
-          } />
-          <Route exact path="/login" component={() =>
-            <Login stateChange={this.stateChange}></Login>
-          } />
-          <Redirect from="/" to="login" />
+          <div className="login-container">
+          <div  className="login-form">
+            <div>
+              <h2>Webnote</h2>
+              <p>Remember everything important</p>
+            </div>
+            <Route exact path="/register" component={() =>
+              <Registration stateChange={this.stateChange} ></Registration>
+            } />
+            <Route exact path="/login" component={() =>
+              <Login stateChange={this.stateChange}></Login>
+            } />
+            <Redirect from="/" to="login" />
+          </div>
+          </div>
         </Router>
       )
     }

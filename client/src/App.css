@@ -1,21 +1,7 @@
-
-
-form {
-  position: relative;
-  left: 35%;
-  background-color: white;
-  width: 25%;
-  padding: 5%;
-  margin-top: 5%;
-  border: 0.5px solid gray;
-  border-radius: 5px;
+.login-container {
+  text-align: center;
 }
 
-.container {
-  width: 50%
-}
-
-.validation-error{
-  color: red;
-  font-size: x-small;
+.login-form {
+  display: inline-block;
 }

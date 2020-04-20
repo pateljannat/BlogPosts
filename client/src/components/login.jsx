@@ -53,21 +53,21 @@ class Login extends Component {
         else {
             return (
                 <form onSubmit={this.handleSubmit}>
-                    <h3>Log In!</h3>
+                    <h4>Log In!</h4>
                     <div className="form-group">
-                        <label> Email Address </label>
-                        <input className="form-control" type="email" name="email" value={this.state.email} onChange={this.handleChange}></input>
+                       {/*  <label> Email Address </label> */}
+                        <input className="form-control" type="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder="Email Address"></input>
                         {/*  <span className="validation-error">{this.state.errors.email}</span> */}
                     </div>
                     <div className="form-group">
-                        <label> Password </label>
-                        <input className="form-control" type="password" name="password" value={this.state.password} onChange={this.handleChange}></input>
+                        {/* <label> Password </label> */}
+                        <input className="form-control" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password"></input>
                         {/* <span className="validation-error">{this.state.errors.password}</span> */}
                     </div>
                     <button className="btn btn-primary" type="submit">Log In</button>
 
                     <div>
-                        <span>Dont have an account. Sign Up now!!!</span>
+                        <span>Dont have an account? </span>
                         <Link to="/register">Sign Up</Link>
                     </div>
                 </form>
