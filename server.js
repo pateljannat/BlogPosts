@@ -23,7 +23,5 @@ app.use(morgan('tiny'));
 app.use('/', routes);
 
 app.listen(PORT, () => {
-    console.log(`Listenign at port ${PORT}`)
+    console.log(`Listening at port ${PORT}`)
 })
-
-//[{"_id":"5e65dcaaeabe070a64ed32d4","title":"jannat","post":"123","__v":0}]
