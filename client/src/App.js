@@ -7,7 +7,7 @@ import ListPosts from "./components/listPosts";
 import EditPosts from "./components/editPosts";
 import Login from "./components/login";
 import Registration from "./components/register";
-import "./App.css";
+import "./styles/App.css";
 
 
 class App extends Component {
@@ -29,9 +29,9 @@ class App extends Component {
         <Router>
           <div className="login-container">
           <div  className="login-form">
-            <div>
+            <div className="login-heading">
               <h2>Webnote</h2>
-              <p>Remember everything important</p>
+              <p>Remember everything important.</p>
             </div>
             <Route exact path="/register" component={() =>
               <Registration stateChange={this.stateChange} ></Registration>
@@ -51,7 +51,7 @@ class App extends Component {
           <NavBar></NavBar>
         </div>
         <Route className="container" path="/" exact component={ListPosts} />
-        <Route path="/edit/:id" compo nent={EditPosts} />
+        <Route path="/edit/:id" component={EditPosts} />
         <Route path="/create" component={CreatePosts} />
       </Router>
 

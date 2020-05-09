@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
+import '../styles/login.css'
 
 class Login extends Component {
 
@@ -53,7 +54,6 @@ class Login extends Component {
         else {
             return (
                 <form onSubmit={this.handleSubmit}>
-                    <h4>Log In!</h4>
                     <div className="form-group">
                        {/*  <label> Email Address </label> */}
                         <input className="form-control" type="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder="Email Address"></input>
@@ -66,8 +66,8 @@ class Login extends Component {
                     </div>
                     <button className="btn btn-primary" type="submit">Log In</button>
 
-                    <div>
-                        <span>Dont have an account? </span>
+                    <div className="switch-section-login">
+                        <div>Dont have an account? </div>
                         <Link to="/register">Sign Up</Link>
                     </div>
                 </form>
