@@ -1,27 +1,38 @@
 {
-  "name": "BlogPosts",
+  "name": "webnote",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
+    "concurrently": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "moment": "^2.24.0",
-    "mongoose": "^5.9.3",
-    "morgan": "^1.9.1",
+    "mongoose": "^5.9.10",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.3",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && npm start",
-    "dev": "nodemon server && npm run client"
+    "dev": "nodemon server && npm run client",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pateljannat/WebNotes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pateljannat/WebNotes/issues"
+  },
+  "homepage": "https://github.com/pateljannat/WebNotes#readme",
+  "description": ""
 }
