@@ -1,3 +1,4 @@
+//Component to display a form for creating new notes
 import React, { Component } from 'react';
 import axios from 'axios';
 
@@ -13,6 +14,7 @@ class CreatePosts extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    //hadles change on form input elements
     handleChange({ target }) {
         const { name, value } = target;
         this.setState({
@@ -20,6 +22,7 @@ class CreatePosts extends Component {
         })
     }
 
+    //handles submission of the form
     handleSubmit(e) {
         e.preventDefault()
         const payload = {
