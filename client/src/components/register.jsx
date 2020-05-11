@@ -1,3 +1,4 @@
+//component for resgitration form
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from "axios";
@@ -18,6 +19,7 @@ class SignUp extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    //handles change on form input elements
     handleChange({ target }) {
         const { name, value } = target;
         this.setState({
@@ -25,6 +27,7 @@ class SignUp extends Component {
         })
     }
 
+    //handles submission of the regstration form
     handleSubmit(e) {
         e.preventDefault();
         const payload = {
@@ -39,6 +42,8 @@ class SignUp extends Component {
                     'token': data.data.token,
                     'email': data.data.email
                 }
+
+                //save the token and login flag in session
                 sessionStorage.setItem('key', JSON.stringify(token));
                 sessionStorage.setItem('isLoggedIn', true);
                 this.setState({

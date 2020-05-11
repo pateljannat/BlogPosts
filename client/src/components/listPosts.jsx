@@ -31,7 +31,7 @@ class ListPosts extends Component {
     render() {
         return (
             <div>
-                <h1>Welcome to My Blogs!!</h1>
+                <h3>All Notes</h3>
                 <div>
                     {this.displayPosts()}
                 </div>
@@ -39,6 +39,7 @@ class ListPosts extends Component {
         );
     }
 
+    //displays a list of all the notes
     displayPosts() {
         let { posts } = this.state;
         if (!posts.length) return null;
@@ -46,7 +47,7 @@ class ListPosts extends Component {
             return (
                 <div key={index} className="list-group-item">
                     <div className="d-flex w-100 justify-content-between">
-                    <h3 className="mb-1">{post.title}</h3>
+                    <h5 className="mb-1">{post.title}</h5>
                     <small className="text-muted">{this.displayDate(post.date)}</small>
                     </div>
                     <p className="mb-1">{post.post}</p>
@@ -56,6 +57,7 @@ class ListPosts extends Component {
         })
     }
 
+    //Formats the date using moment.js library in the format Do MMMM YYYY
     displayDate(date) {
         return moment(date).format('Do MMMM YYYY');
     }

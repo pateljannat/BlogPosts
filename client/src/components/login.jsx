@@ -1,3 +1,4 @@
+//component for login form
 import React, { Component } from 'react';
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
@@ -16,6 +17,7 @@ class Login extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    //handles change on form input elements 
     handleChange({ target }) {
         const { name, value } = target;
         this.setState({
@@ -23,6 +25,7 @@ class Login extends Component {
         })
     }
 
+    //handles submission of login form
     handleSubmit(e) {
         e.preventDefault();
         const payload = {
@@ -55,12 +58,10 @@ class Login extends Component {
             return (
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
-                       {/*  <label> Email Address </label> */}
                         <input className="form-control" type="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder="Email Address"></input>
                         {/*  <span className="validation-error">{this.state.errors.email}</span> */}
                     </div>
                     <div className="form-group">
-                        {/* <label> Password </label> */}
                         <input className="form-control" type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="Password"></input>
                         {/* <span className="validation-error">{this.state.errors.password}</span> */}
                     </div>

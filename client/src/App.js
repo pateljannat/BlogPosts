@@ -20,9 +20,14 @@ class App extends Component {
     this.stateChange = this.stateChange.bind(this);
   }
 
+  //Based on changes in child component, stateChange function changes the state of this component
   stateChange(newState) {
     this.setState(newState)
   }
+
+  //Checks if the user is loggedIn or not
+  //If the user is not logged in then displays the login component
+  //Else dispays 
   render() {
     if (!this.state.isLoggedIn) {
       return (
@@ -51,8 +56,8 @@ class App extends Component {
           <NavBar></NavBar>
         </div>
         <Route className="container" path="/" exact component={ListPosts} />
-        <Route path="/edit/:id" component={EditPosts} />
-        <Route path="/create" component={CreatePosts} />
+        <Route path="/edit/:id" exact component={EditPosts} />
+        <Route path="/create" exact component={CreatePosts} />
       </Router>
 
     );
