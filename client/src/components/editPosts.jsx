@@ -7,8 +7,7 @@ class EditPosts extends Component {
         super(props);
         this.state = {
             'title': '',
-            'post': '',
-            'isEdited': false
+            'post': ''
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,30 +40,20 @@ class EditPosts extends Component {
         axios.post(`http://localhost:4000/api/${this.props.match.params.id}`, payload).then(data => {
             this.props.history.push('/');
         })
-        /* this.setState({
-            isEdited: true
-        }) */
     }
 
     render() {
-        /* if (!this.state.isEdited) { */
-            return (
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-group">
-                        <input type="text" className="form-control" placeholder="Title" name="title" value={this.state.title} onChange={this.handleChange} />
-                    </div>
-                    <div className="form-group">
-                        <input type="text" className="form-control" placeholder="Post" name="post" value={this.state.post} onChange={this.handleChange} />
-                    </div>
-                    <button className="btn btn-primary" type="submit" /* onClick={this.handleSubmit} */ >Submit</button>
-                </form>
-            );
-        /* }
-        else {
-            console.log(this.state)
-            return <Redirect to="/"></Redirect>
-        } */
-
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <div className="form-group">
+                    <input type="text" className="form-control" placeholder="Title" name="title" value={this.state.title} onChange={this.handleChange} />
+                </div>
+                <div className="form-group">
+                    <input type="text" className="form-control" placeholder="Post" name="post" value={this.state.post} onChange={this.handleChange} />
+                </div>
+                <button className="btn btn-primary" type="submit" /* onClick={this.handleSubmit} */ >Submit</button>
+            </form>
+        );
     }
 }
 
