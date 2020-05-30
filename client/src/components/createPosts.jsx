@@ -50,7 +50,7 @@ class CreatePosts extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} autoComplete="off">
+            <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                     <input type="text" className="form-control" placeholder="Title" name="title" value={this.state.title} onChange={this.handleChange} />
                 </div>

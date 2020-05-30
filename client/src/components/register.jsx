@@ -64,7 +64,7 @@ class SignUp extends Component {
         }
         else {
             return (
-                <form onSubmit={this.handleSubmit} autoComplete="off">
+                <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <input placeholder="Name" className="form-control" type="text" name="name" value={this.state.name} onChange={this.handleChange}></input>
                         {/* <span className="validation-error">{this.state.errors.name}</span> */}
