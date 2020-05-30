@@ -46,15 +46,11 @@ class CreatePosts extends Component {
         axios.post(url, payload).then(data => {
             this.props.history.push('/');
         })
-        /* this.setState({
-            title: '',
-            post: ''
-        }) */
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} autoComplete="off">
                 <div className="form-group">
                     <input type="text" className="form-control" placeholder="Title" name="title" value={this.state.title} onChange={this.handleChange} />
                 </div>
