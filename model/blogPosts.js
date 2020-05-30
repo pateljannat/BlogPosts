@@ -7,7 +7,7 @@ let blogPost = new Schema({
     user: 'String',
     date: {
         type: 'Date',
-        default: Date.now()
+        default: new Date() /* Date.now() */
     }
 })
 

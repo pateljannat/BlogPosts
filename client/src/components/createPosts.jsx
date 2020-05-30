@@ -46,10 +46,6 @@ class CreatePosts extends Component {
         axios.post(url, payload).then(data => {
             this.props.history.push('/');
         })
-        /* this.setState({
-            title: '',
-            post: ''
-        }) */
     }
 
     render() {
