@@ -28,7 +28,29 @@ class ListPosts extends Component {
         });
     }
 
+    deletePost(id) {
+        axios.delete(`http://localhost:4000/api/delete/${id}`, {
+            params: {
+                email: JSON.parse(sessionStorage.getItem('key')).email
+            }
+        }).then(posts => {
+            var data = posts.data.sort((data1, data2) => new Date(data2.date) - new Date(data1.date));
+            this.setState({
+                'posts': data
+            })
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
     render() {
+        let { posts } = this.state;
+        if (!posts.length) 
+        return (
+            <div className="no-notes">
+                You have no notes yet!!
+            </div>
+        );
         return (
             <div>
                 <h3>All Notes</h3>
@@ -52,6 +74,7 @@ class ListPosts extends Component {
                     </div>
                     <p className="mb-1">{post.post}</p>
                     <Link className="list-group-item-action" to={"/edit/" + post._id}>Edit</Link>
+                    <span className="list-group-item-action" onClick={this.deletePost.bind(this, post._id)}>Delete</span>
                 </div>
             )
         })

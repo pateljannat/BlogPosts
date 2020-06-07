@@ -19,3 +19,21 @@
   width: 25px;
   height: 25px;
 }
+
+.no-notes {
+  text-align: center;
+  margin: 10vh;
+}
+
+.bg-light {
+  box-shadow: 0px 4px 24px #C0C0C0 ;
+}
+
+.form-style {
+  margin-left: 20vh;
+  margin-right: 20vh;
+}
+
+.list-group-item-action {
+  margin-right: 1rem;
+}
