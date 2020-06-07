@@ -20,12 +20,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd client && npm start",
-    "dev": "concurrently \"nodemon server\" \"npm run client\"",
-    "nvm": "concurrently \"cd .nvm\" \". nvm.sh\"",
-    "client-install": "cd client && npm install"
+    "dev" : "node server && npm run client"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jannat",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -35,5 +33,5 @@
     "url": "https://github.com/pateljannat/WebNotes/issues"
   },
   "homepage": "https://github.com/pateljannat/WebNotes#readme",
-  "description": ""
+  "description": "A note making application build using MERN stack."
 }

@@ -3,6 +3,7 @@ const BlogPost = require("../model/blogPosts");
 const SignUp = require("../model/signUp");
 const router = express.Router();
 const UserSession = require("../model/userSession");
+const mongodb = require('mongodb');
 
 //const blogPosts = new BlogPost();
 router.post('/api/accounts/register', (req, res) => {
@@ -207,7 +208,7 @@ router.get('/api/account/verify', (req, res, next) => {
 });
 
 router.get('/api', (req, res) => {
-    console.log('params',req.query.email)
+    console.log('params', req.query.email)
     BlogPost.find({
         'user': req.query.email
     }).then((data) => {
@@ -236,6 +237,22 @@ router.post('/api/add', (req, res) => {
         res.status(200).json("Post added!!!");
     })
 });
+
+router.delete('/api/delete/:id', (req, res) => {
+    console.log(req.query.email)
+    BlogPost.deleteOne({ '_id': new mongodb.ObjectID(req.params.id) }).then(data => {
+        BlogPost.find({
+            'user': req.query.email
+        }).then((data) => {
+            console.log(data)
+            res.json(data);
+        }).catch(error => {
+            console.log(error);
+        });
+    }).catch(error => {
+        console.log(error);
+    });
+})
 
 router.post('/api/:id', (req, res) => {
     BlogPost.findById(req.params.id, (error, data) => {
