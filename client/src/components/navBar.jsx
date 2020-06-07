@@ -8,7 +8,7 @@ class NavBar extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <nav className="navbar navbar-expand-sm navbar-light bg-light">
                     <Link to="/" className="navbar-brand">
                         <img src="./WebNote.png" className="logo" alt="Logo"></img>
                     </Link>
@@ -16,7 +16,7 @@ class NavBar extends Component {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
-                                <Link to="/create" className="nav-link">Create Posts</Link>
+                                <Link to="/create" className="nav-link">Create</Link>
                             </li>
                         </ul>
                     </div>
