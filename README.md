@@ -1,6 +1,8 @@
 # WebNotes
 A note making application build using MERN stack.
 
+![Demo](client/public/WebnoteDemo.gif)
+
 ### Installation:
 
 1. Install dependencies for server

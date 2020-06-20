@@ -22,18 +22,6 @@ class NavBar extends Component {
                 this.props.stateChange({
                     isLoggedIn: false
                 });
-               /*  const token = {
-                    'token': data.data.token,
-                    'email': data.data.email
-                }
-                sessionStorage.setItem('key', JSON.stringify(token) );
-                sessionStorage.setItem('isLoggedIn', true);
-                this.setState({
-                    isLoggedIn: true
-                });
-                this.props.stateChange({
-                    isLoggedIn: true
-                }); */
             }
         })
     }
