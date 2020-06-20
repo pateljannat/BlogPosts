@@ -2,10 +2,44 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import "../styles/App.css";
+import axios from 'axios';
 
 class NavBar extends Component {
-    state = {}
+    
+    constructor(props) {
+        super(props);
+        this.handleLogout = this.handleLogout.bind(this);
+    }
+
+    handleLogout(e) {
+        e.preventDefault();
+
+        let token = JSON.parse(sessionStorage.getItem('key')).token;
+        axios.get(`http://localhost:4000/api/accounts/logout`, token).then(data => {
+            if (data.data.success === true) {
+                sessionStorage.removeItem('key');
+                sessionStorage.removeItem('isLoggedIn');
+                this.props.stateChange({
+                    isLoggedIn: false
+                });
+               /*  const token = {
+                    'token': data.data.token,
+                    'email': data.data.email
+                }
+                sessionStorage.setItem('key', JSON.stringify(token) );
+                sessionStorage.setItem('isLoggedIn', true);
+                this.setState({
+                    isLoggedIn: true
+                });
+                this.props.stateChange({
+                    isLoggedIn: true
+                }); */
+            }
+        })
+    }
+ 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <nav className="navbar navbar-expand-sm navbar-light bg-light">
@@ -17,6 +51,9 @@ class NavBar extends Component {
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
                                 <Link to="/create" className="nav-link">Create</Link>
+                            </li>
+                            <li className="nav-item logout-link">
+                                <span className="nav-link link-span" onClick={this.handleLogout}>Logout</span>
                             </li>
                         </ul>
                     </div>

@@ -42,7 +42,6 @@ router.post('/api/accounts/register', (req, res) => {
     newUser.name = name;
 
     newUser.save((error, user) => {
-        console.log(user)
         if (error) {
             return res.send({
                 success: false,
@@ -53,7 +52,6 @@ router.post('/api/accounts/register', (req, res) => {
             const userSession = new UserSession();
             userSession.userId = user._id;
             userSession.save((err, doc) => {
-                console.log(doc)
                 if (err) {
                     return res.json({
                         success: false,
@@ -148,7 +146,7 @@ router.post('/api/accounts/login', (req, res, next) => {
     });
 });
 
-router.get('/api/account/logout', (req, res) => {
+router.get('/api/accounts/logout', (req, res) => {
     const { query } = req;
     const { token } = query;
 
@@ -208,11 +206,9 @@ router.get('/api/account/verify', (req, res, next) => {
 });
 
 router.get('/api', (req, res) => {
-    console.log('params', req.query.email)
     BlogPost.find({
         'user': req.query.email
     }).then((data) => {
-        console.log(data)
         res.json(data);
     }).catch(error => {
         console.log(error);
@@ -239,12 +235,10 @@ router.post('/api/add', (req, res) => {
 });
 
 router.delete('/api/delete/:id', (req, res) => {
-    console.log(req.query.email)
     BlogPost.deleteOne({ '_id': new mongodb.ObjectID(req.params.id) }).then(data => {
         BlogPost.find({
             'user': req.query.email
         }).then((data) => {
-            console.log(data)
             res.json(data);
         }).catch(error => {
             console.log(error);

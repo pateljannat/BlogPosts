@@ -52,7 +52,7 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
-          <NavBar></NavBar>
+          <NavBar stateChange={this.stateChange}></NavBar>
         </div>
         <Route className="container" path="/" exact component={ListPosts} />
         <Route path="/edit/:id" exact render={(props) => 
