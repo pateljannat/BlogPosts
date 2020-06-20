@@ -74,7 +74,7 @@ class ListPosts extends Component {
                     </div>
                     <p className="mb-1">{post.post}</p>
                     <Link className="list-group-item-action" to={"/edit/" + post._id}>Edit</Link>
-                    <span className="list-group-item-action" onClick={this.deletePost.bind(this, post._id)}>Delete</span>
+                    <span className="list-group-item-action link-span" onClick={this.deletePost.bind(this, post._id)}>Delete</span>
                 </div>
             )
         })
