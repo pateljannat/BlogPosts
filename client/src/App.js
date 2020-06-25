@@ -51,7 +51,7 @@ class App extends Component {
     }
     return (
       <Router>
-        <div className="container">
+        <div className="container pb-4">
           <NavBar stateChange={this.stateChange}></NavBar>
         </div>
         <Route className="container" path="/" exact component={ListPosts} />

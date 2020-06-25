@@ -5,7 +5,7 @@ import "../styles/App.css";
 import axios from 'axios';
 
 class NavBar extends Component {
-    
+
     constructor(props) {
         super(props);
         this.handleLogout = this.handleLogout.bind(this);
@@ -15,7 +15,7 @@ class NavBar extends Component {
         e.preventDefault();
 
         let token = JSON.parse(sessionStorage.getItem('key')).token;
-        axios.get(`/api/accounts/logout`, token).then(data => {
+        axios.get(`${process.env.REACT_APP_AXIOS_URL}/api/accounts/logout`, token).then(data => {
             if (data.data.success === true) {
                 sessionStorage.removeItem('key');
                 sessionStorage.removeItem('isLoggedIn');
@@ -25,16 +25,16 @@ class NavBar extends Component {
             }
         })
     }
- 
+
     render() {
         return (
             <div>
                 <nav className="navbar navbar-expand-sm navbar-light bg-light">
                     <Link to="/" className="navbar-brand">
                         <img src="./WebNote.png" className="logo" alt="Logo"></img>
-                    </Link>
+                    </Link> 
 
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div className="" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item">
                                 <Link to="/create" className="nav-link">Create</Link>

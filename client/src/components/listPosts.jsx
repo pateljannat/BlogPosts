@@ -13,8 +13,7 @@ class ListPosts extends Component {
     }
 
     componentDidMount() {
-        console.log(process.env.baseURL)
-        axios.get('/api', {
+        axios.get(`${process.env.REACT_APP_AXIOS_URL}/api`, {
             params: {
                 email: JSON.parse(sessionStorage.getItem('key')).email
             },
@@ -30,7 +29,7 @@ class ListPosts extends Component {
     }
 
     deletePost(id) {
-        axios.delete(`/api/delete/${id}`, {
+        axios.delete(`${process.env.REACT_APP_AXIOS_URL}/api/delete/${id}`, {
             params: {
                 email: JSON.parse(sessionStorage.getItem('key')).email
             }

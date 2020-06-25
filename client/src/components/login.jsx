@@ -32,13 +32,13 @@ class Login extends Component {
             email: this.state.email,
             password: this.state.password
         }
-        axios.post(`/api/accounts/login`, payload).then(data => {
+        axios.post(`${process.env.REACT_APP_AXIOS_URL}/api/accounts/login`, payload).then(data => {
             if (data.data.success === true) {
                 const token = {
                     'token': data.data.token,
                     'email': data.data.email
                 }
-                sessionStorage.setItem('key', JSON.stringify(token) );
+                sessionStorage.setItem('key', JSON.stringify(token));
                 sessionStorage.setItem('isLoggedIn', true);
                 this.setState({
                     isLoggedIn: true

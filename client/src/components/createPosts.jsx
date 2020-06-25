@@ -23,8 +23,8 @@ class CreatePosts extends Component {
     }
 
     componentDidMount() {
-        if (!this.props.match.params.id) return
-        axios.get(`/api/${this.props.match.params.id}`).then(post => {
+        if (!this.props.match.params.id) return;
+        axios.get(`${process.env.REACT_APP_AXIOS_URL}/api/${this.props.match.params.id}`).then(post => {
             this.setState({
                 'title': post.data.title,
                 'post': post.data.post
@@ -42,7 +42,7 @@ class CreatePosts extends Component {
             'post': this.state.post,
             'user': JSON.parse(sessionStorage.getItem('key')).email
         }
-        const url = this.props.match.params.id ? `/api/${this.props.match.params.id}` : '/api/add';
+        const url = this.props.match.params.id ? `${process.env.REACT_APP_AXIOS_URL}/api/${this.props.match.params.id}` : `${process.env.REACT_APP_AXIOS_URL}/api/add`;
         axios.post(url, payload).then(data => {
             this.props.history.push('/');
         })
