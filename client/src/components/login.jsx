@@ -32,7 +32,7 @@ class Login extends Component {
             email: this.state.email,
             password: this.state.password
         }
-        axios.post(`http://localhost:4000/api/accounts/login`, payload).then(data => {
+        axios.post(`/api/accounts/login`, payload).then(data => {
             if (data.data.success === true) {
                 const token = {
                     'token': data.data.token,

@@ -19,9 +19,12 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server",
     "client": "cd client && npm start",
     "client-install": "cd client && npm install",
-    "dev": "concurrently \"nodemon server\" \"npm run client\""
+    "dev": "concurrently \"nodemon server\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "num run client-install && npm run build"
   },
   "keywords": [],
   "author": "Jannat",

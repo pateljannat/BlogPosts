@@ -15,7 +15,7 @@ class NavBar extends Component {
         e.preventDefault();
 
         let token = JSON.parse(sessionStorage.getItem('key')).token;
-        axios.get(`http://localhost:4000/api/accounts/logout`, token).then(data => {
+        axios.get(`/api/accounts/logout`, token).then(data => {
             if (data.data.success === true) {
                 sessionStorage.removeItem('key');
                 sessionStorage.removeItem('isLoggedIn');

@@ -14,7 +14,7 @@ class EditPosts extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:4000/api/${this.props.match.params.id}`).then(post => {
+        axios.get(`/api/${this.props.match.params.id}`).then(post => {
             this.setState({
                 'title': post.data.title,
                 'post': post.data.post
@@ -37,7 +37,7 @@ class EditPosts extends Component {
             'title': this.state.title,
             'post': this.state.post
         }
-        axios.post(`http://localhost:4000/api/${this.props.match.params.id}`, payload).then(data => {
+        axios.post(`/api/${this.props.match.params.id}`, payload).then(data => {
             this.props.history.push('/');
         })
     }
