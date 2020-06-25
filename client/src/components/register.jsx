@@ -36,7 +36,7 @@ class SignUp extends Component {
             password: this.state.password,
             password1: this.state.password1
         }
-        axios.post(`http://localhost:4000/api/accounts/register`, payload).then(data => {
+        axios.post(`/api/accounts/register`, payload).then(data => {
             if (data.data.success === true) {
                 const token = {
                     'token': data.data.token,
