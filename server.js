@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const MONGODB_URI = "mongodb+srv://jannat:webnote@webnote.2o5v9.mongodb.net/<dbname>?retryWrites=true&w=majority"
-mongoose.connect(MONGODB_URI || 'mongodb://127.0.0.1:27017/blogPosts', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/blogPosts', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
