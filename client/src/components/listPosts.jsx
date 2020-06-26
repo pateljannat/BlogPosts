@@ -45,18 +45,15 @@ class ListPosts extends Component {
 
     render() {
         let { posts } = this.state;
-        if (!posts.length) 
-        return (
-            <div className="no-notes">
-                You have no notes yet!!
-            </div>
-        );
+        if (!posts.length)
+            return (
+                <div className="no-notes">
+                    You have no notes yet!!
+                </div>
+            );
         return (
             <div>
-                <h3>All Notes</h3>
-                <div>
-                    {this.displayPosts()}
-                </div>
+                {this.displayPosts()}
             </div>
         );
     }
@@ -67,14 +64,14 @@ class ListPosts extends Component {
         if (!posts.length) return null;
         return posts.map((post, index) => {
             return (
-                <div key={index} className="list-group-item">
+                <div key={index} className="list-group-item m-2 border">
                     <div className="d-flex w-100 justify-content-between">
-                    <h5 className="mb-1">{post.title}</h5>
-                    <small className="text-muted">{this.displayDate(post.date)}</small>
+                        <h5 className="mb-1">{post.title}</h5>
                     </div>
                     <p className="mb-1">{post.post}</p>
                     <Link className="list-group-item-action" to={"/edit/" + post._id}>Edit</Link>
                     <span className="list-group-item-action link-span" onClick={this.deletePost.bind(this, post._id)}>Delete</span>
+                    <small className="text-muted float-right">{this.displayDate(post.date)}</small>
                 </div>
             )
         })

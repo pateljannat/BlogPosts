@@ -50,7 +50,7 @@ class CreatePosts extends Component {
 
     render() {
         return (
-            <form className="form-style mt-4" onSubmit={this.handleSubmit}>
+            <form className="form-style m-5" onSubmit={this.handleSubmit}>
                 <div className="form-group">
                     <input type="text" className="form-control" placeholder="Title" name="title" value={this.state.title} onChange={this.handleChange} />
                 </div>
