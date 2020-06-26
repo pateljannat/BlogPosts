@@ -21,6 +21,7 @@ A note making application build using MERN stack.
 > npm run client
 
 Server runs on http://localhost:4000 and client on http://localhost:3000
+
 Check the app live on https://web-note-app.herokuapp.com/
 
 ### More:
