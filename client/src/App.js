@@ -35,7 +35,7 @@ class App extends Component {
           <div  className="login-form">
             <div className="login-heading">
               <h2>Webnote</h2>
-              <p>Remember everything important.</p>
+              <p>Remember everything important!</p>
             </div>
             <Route exact path="/register" render={(props) =>
               <Registration stateChange={this.stateChange} ></Registration>
